@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:todo_app/screens/todo_screen.dart';
 
+import 'package:google_fonts/google_fonts.dart';
+
 class Homescreen extends StatelessWidget {
   const Homescreen({super.key});
 
@@ -17,10 +19,10 @@ class Homescreen extends StatelessWidget {
               image: AssetImage('assets/icon/homescreen-icon.jpg'),
             ),
             Text(
-              "Simplify your day with TaskMaster - your go-to app for staying on top of tasks!",
+              "Stay organized with TaskMaster.",
               style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                    color: Theme.of(context).colorScheme.primary,
-                  ),
+                  fontFamily: GoogleFonts.montserrat().fontFamily,
+                  color: Theme.of(context).colorScheme.primary),
               textAlign: TextAlign.center,
             ),
             ElevatedButton(
@@ -31,9 +33,9 @@ class Homescreen extends StatelessWidget {
               },
               child: Text(
                 "Next",
-                style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                      color: Theme.of(context).colorScheme.primary,
-                    ),
+                style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                    fontFamily: GoogleFonts.montserrat().fontFamily,
+                    color: Theme.of(context).colorScheme.primary),
               ),
             )
           ],

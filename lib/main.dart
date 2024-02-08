@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todo_app/screens/homescreen.dart';
 
-import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(
@@ -29,7 +28,6 @@ void main() {
             fontWeight: FontWeight.bold,
           ),
         ),
-        fontFamily: GoogleFonts.poppins().fontFamily,
         useMaterial3: true,
       ),
       home: const Homescreen(),
