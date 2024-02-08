@@ -24,17 +24,18 @@ class Homescreen extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
             ElevatedButton(
-                onPressed: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => const TodoScreen()),
-                  );
-                },
-                child: Text(
-                  "Next",
-                  style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                        color: Theme.of(context).colorScheme.primary,
-                      ),
-                ))
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => const TodoScreen()),
+                );
+              },
+              child: Text(
+                "Next",
+                style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                      color: Theme.of(context).colorScheme.primary,
+                    ),
+              ),
+            )
           ],
         ),
       ),

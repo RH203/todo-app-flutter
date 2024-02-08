@@ -17,7 +17,7 @@ void main() {
             fontWeight: FontWeight.bold,
           ),
           titleLarge: TextStyle(
-            fontSize: 30,
+            fontSize: 20,
             fontWeight: FontWeight.bold,
           ),
           bodyMedium: TextStyle(
@@ -29,7 +29,7 @@ void main() {
             fontWeight: FontWeight.bold,
           ),
         ),
-        fontFamily: GoogleFonts.jetBrainsMono().fontFamily,
+        fontFamily: GoogleFonts.poppins().fontFamily,
         useMaterial3: true,
       ),
       home: const Homescreen(),
