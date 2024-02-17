@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:todo_app/screens/current_todo.dart';
 import 'package:todo_app/screens/add_todo.dart';
+import 'package:todo_app/todo/todo.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 import 'package:todo_app/screens/homescreen.dart';
 
 class TodoScreen extends StatefulWidget {
-  const TodoScreen({super.key});
+  final Todo todos;
+  const TodoScreen({super.key, required this.todos});
 
   @override
   State<TodoScreen> createState() => _TodoScreenState();
@@ -14,8 +16,18 @@ class TodoScreen extends StatefulWidget {
 
 class _TodoScreenState extends State<TodoScreen> {
   int _selectedIndex = 0;
+  late List<Widget> _widgetOptions;
 
-  static const List<Widget> _widgetOptions = <Widget>[CurrentTodo(), AddTodo()];
+  @override
+  void initState() {
+    super.initState();
+    _widgetOptions = <Widget>[
+      CurrentTodo(
+        todos: widget.todos,
+      ),
+      AddTodo(todos: widget.todos),
+    ];
+  }
 
   void _onItemTapped(int index) {
     setState(() {
@@ -44,7 +56,7 @@ class _TodoScreenState extends State<TodoScreen> {
           onPressed: () {
             Navigator.of(context).push(
               MaterialPageRoute(
-                builder: (context) => const Homescreen(),
+                builder: (context) => Homescreen(todos: widget.todos),
               ),
             );
           },

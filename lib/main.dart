@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:todo_app/screens/homescreen.dart';
-
+import 'package:todo_app/todo/todo.dart';
 
 void main() {
+  Todo todos = Todo();
   runApp(
     MaterialApp(
       title: "Todo APP",
@@ -30,7 +31,9 @@ void main() {
         ),
         useMaterial3: true,
       ),
-      home: const Homescreen(),
+      home: Homescreen(
+        todos: todos,
+      ),
     ),
   );
 }

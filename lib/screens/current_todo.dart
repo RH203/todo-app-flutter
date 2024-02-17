@@ -1,40 +1,43 @@
 import 'package:flutter/material.dart';
 import 'package:todo_app/todo/todo.dart';
 
-class CurrentTodo extends StatefulWidget {
-  const CurrentTodo({super.key});
+class CurrentTodo extends StatelessWidget {
+  final Todo todos;
 
-  @override
-  State<CurrentTodo> createState() => _CurrentTodoState();
-
-  void addTask(String title, String task) {
-    _CurrentTodoState state = _CurrentTodoState();
-    state.addTask(title, task);
-  }
-}
-
-class _CurrentTodoState extends State<CurrentTodo> {
-  List<TodoList> tasks = [];
-
-  void addTask(String title, String task) {
-    TodoList newTask = TodoList();
-    setState(() {
-      tasks.add(newTask);
-    });
-  }
+  const CurrentTodo({super.key, required this.todos});
 
   @override
   Widget build(BuildContext context) {
-    return ListView.separated(
-      padding: const EdgeInsets.all(8),
-      itemCount: tasks.length,
-      itemBuilder: (BuildContext context, int index) {
-        return Container(
-          height: 50,
-          child: Center(child: Text('Entry ${tasks[index]}')),
-        );
-      },
-      separatorBuilder: (BuildContext context, int index) => const Divider(),
-    );
+    if (todos.lengthTodo() > 0) {
+      return ListView.separated(
+        padding: const EdgeInsets.all(8),
+        itemCount: todos.lengthTodo(),
+        itemBuilder: (BuildContext context, int index) {
+          return SizedBox(
+            height: 80,
+            child: Center(
+              child: Column(
+                children: [
+                  Text(
+                    'Title: ${todos.getTitle()[index]}',
+                    style: const TextStyle(fontSize: 20),
+                  ),
+                  Text('Task: ${todos.getTask()[index]}',
+                      style: const TextStyle(fontSize: 20)),
+                ],
+              ),
+            ),
+          );
+        },
+        separatorBuilder: (BuildContext context, int index) => const Divider(),
+      );
+    } else {
+      return const Center(
+        child: Text(
+          'No task today',
+          style: TextStyle(fontSize: 20),
+        ),
+      );
+    }
   }
 }

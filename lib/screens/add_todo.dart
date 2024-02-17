@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:todo_app/common/widgets/fields/text_field_user.dart';
-import 'package:todo_app/screens/current_todo.dart';
+import 'package:todo_app/todo/todo.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 
 class AddTodo extends StatefulWidget {
-  const AddTodo({super.key});
+  final Todo todos;
+  const AddTodo({super.key, required this.todos});
 
   @override
   State<AddTodo> createState() => _AddTodoState();
@@ -27,6 +28,16 @@ class _AddTodoState extends State<AddTodo> {
     _titleController.dispose();
     _taskController.dispose();
     super.dispose();
+  }
+
+  void onPressForm() {
+    String title = _titleController.text;
+    String task = _taskController.text;
+
+    widget.todos.addTodo(title, task);
+
+    _titleController.clear();
+    _taskController.clear();
   }
 
   @override
@@ -53,17 +64,7 @@ class _AddTodoState extends State<AddTodo> {
             controller: _taskController),
         const SizedBox(height: 50),
         ElevatedButton(
-          onPressed: () {
-            String title = _titleController.text;
-            String task = _taskController.text;
-
-            CurrentTodo todo = CurrentTodo();
-
-            todo.addTask(title, task);
-
-            _titleController.clear();
-            _taskController.clear();
-          },
+          onPressed: onPressForm,
           child: Text(
             "Submit",
             style: Theme.of(context).textTheme.titleLarge!.copyWith(

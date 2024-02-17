@@ -1,14 +1,21 @@
-class TodoList {
-  final title = [];
-  final task = [];
+class Todo {
+  final List<String> title = [];
+  final List<String> task = [];
 
   void addTodo(String title, String task) {
     this.title.add(title);
     this.task.add(task);
   }
 
-  List showTodo() {
-    return [title, task];
+  List<String> getTitle() {
+    return title;
   }
 
+  List<String> getTask() {
+    return task;
+  }
+
+  int lengthTodo() {
+    return title.length;
+  }
 }
