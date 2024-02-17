@@ -12,8 +12,8 @@ class Todo {
   List<String> getTitle() {
     List<String> modifiedTitle = [];
     for (String t in title) {
-      if (' '.allMatches(t).length > 4) {
-        modifiedTitle.add('${t.characters.take(15).toString()} ...');
+      if (t.split("").length > 12) {
+        modifiedTitle.add('${t.characters.take(15).toString()}...');
       } else {
         modifiedTitle.add(t);
       }
@@ -24,8 +24,8 @@ class Todo {
   List<String> getTask() {
     List<String> modifiedTasks = [];
     for (String t in task) {
-      if (' '.allMatches(t).length > 2) {
-        modifiedTasks.add('${t.characters.take(20).toString()} ...');
+      if (t.split("").length > 12) {
+        modifiedTasks.add('${t.characters.take(20).toString()}...');
       } else {
         modifiedTasks.add(t);
       }

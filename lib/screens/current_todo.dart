@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo_app/screens/view_todo.dart';
 import 'package:todo_app/todo/todo.dart';
 
 class CurrentTodo extends StatelessWidget {
@@ -21,26 +22,25 @@ class CurrentTodo extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Expanded(
-                      child: Text(
-                        todos.getTitle()[index],
-                        style: const TextStyle(
-                          fontSize: 30,
-                        ),
+                    Text(
+                      todos.getTitle()[index],
+                      style: const TextStyle(
+                        fontSize: 30,
                       ),
                     ),
-                    Expanded(
-                      child: Text(
-                        todos.getTask()[index],
-                        style: const TextStyle(fontSize: 20),
-                      ),
+                    Text(
+                      todos.getTask()[index],
+                      style: const TextStyle(fontSize: 20),
                     ),
                   ],
                 ),
                 Row(
                   children: [
                     IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const ViewTodo()));
+                      },
                       icon: const Icon(
                         Icons.edit,
                         color: Color.fromARGB(165, 0, 4, 255),
