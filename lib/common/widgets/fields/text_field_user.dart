@@ -19,7 +19,7 @@ class _TextFieldUserState extends State<TextFieldUser> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 300,
+      width: 350,
       child: TextField(
         controller: widget.controller,
         decoration: InputDecoration(

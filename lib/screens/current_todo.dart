@@ -17,7 +17,7 @@ class _CurrentTodoState extends State<CurrentTodo> {
   List<TodoList> tasks = [];
 
   void addTask(String title, String task) {
-    TodoList newTask = TodoList(title: title, task: task);
+    TodoList newTask = TodoList();
     setState(() {
       tasks.add(newTask);
     });
