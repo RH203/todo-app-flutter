@@ -3,6 +3,7 @@ import 'package:todo_app/common/widgets/fields/text_field_user.dart';
 import 'package:todo_app/todo/todo.dart';
 
 import 'package:google_fonts/google_fonts.dart';
+import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 
 class AddTodo extends StatefulWidget {
   final Todo todos;
@@ -38,6 +39,26 @@ class _AddTodoState extends State<AddTodo> {
 
     _titleController.clear();
     _taskController.clear();
+
+    _showAwesomeSnackBar();
+  }
+
+  void _showAwesomeSnackBar() {
+    final snackBar = SnackBar(
+      elevation: 0,
+      behavior: SnackBarBehavior.floating,
+      backgroundColor: Colors.transparent,
+      content: AwesomeSnackbarContent(
+        title: 'Success!',
+        message: 'Successfully added a new task.',
+        contentType: ContentType.success,
+        inMaterialBanner: true,
+      ),
+    );
+
+    ScaffoldMessenger.of(context)
+      ..hideCurrentSnackBar()
+      ..showSnackBar(snackBar);
   }
 
   @override
