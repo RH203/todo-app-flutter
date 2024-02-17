@@ -22,7 +22,6 @@ class Homescreen extends StatelessWidget {
             Text(
               "Stay organized with TaskMaster.",
               style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                  // Menggunakan headline6 untuk ukuran font yang lebih sesuai
                   fontFamily: GoogleFonts.montserrat().fontFamily,
                   color: Theme.of(context).colorScheme.primary),
               textAlign: TextAlign.center,
@@ -39,7 +38,6 @@ class Homescreen extends StatelessWidget {
               child: Text(
                 "Next",
                 style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                    // Menggunakan headline6 untuk ukuran font yang lebih sesuai
                     fontFamily: GoogleFonts.montserrat().fontFamily,
                     color: Theme.of(context).colorScheme.primary),
               ),
