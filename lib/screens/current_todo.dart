@@ -15,17 +15,47 @@ class CurrentTodo extends StatelessWidget {
         itemBuilder: (BuildContext context, int index) {
           return SizedBox(
             height: 80,
-            child: Center(
-              child: Column(
-                children: [
-                  Text(
-                    'Title: ${todos.getTitle()[index]}',
-                    style: const TextStyle(fontSize: 20),
-                  ),
-                  Text('Task: ${todos.getTask()[index]}',
-                      style: const TextStyle(fontSize: 20)),
-                ],
-              ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Expanded(
+                      child: Text(
+                        todos.getTitle()[index],
+                        style: const TextStyle(
+                          fontSize: 30,
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: Text(
+                        todos.getTask()[index],
+                        style: const TextStyle(fontSize: 20),
+                      ),
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    IconButton(
+                      onPressed: () {},
+                      icon: const Icon(
+                        Icons.edit,
+                        color: Color.fromARGB(165, 0, 4, 255),
+                      ),
+                    ),
+                    IconButton(
+                      onPressed: () {},
+                      icon: const Icon(
+                        Icons.delete,
+                        color: Color.fromARGB(152, 255, 0, 0),
+                      ),
+                    )
+                  ],
+                ),
+              ],
             ),
           );
         },
@@ -35,7 +65,7 @@ class CurrentTodo extends StatelessWidget {
       return const Center(
         child: Text(
           'No task today',
-          style: TextStyle(fontSize: 20),
+          style: TextStyle(fontSize: 30),
         ),
       );
     }

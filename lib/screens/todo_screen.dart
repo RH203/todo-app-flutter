@@ -40,6 +40,7 @@ class _TodoScreenState extends State<TodoScreen> {
     return Scaffold(
       resizeToAvoidBottomInset: true,
       appBar: AppBar(
+        backgroundColor: const Color.fromARGB(255, 235, 229, 229),
         title: Text(
           "Todo app",
           style: Theme.of(context).textTheme.titleLarge!.copyWith(
@@ -64,15 +65,22 @@ class _TodoScreenState extends State<TodoScreen> {
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.task),
+            icon: Icon(
+              Icons.task,
+              color: Color.fromARGB(255, 0, 0, 0),
+            ),
             label: 'Current Task',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.add),
+            icon: Icon(
+              Icons.add,
+              color: Color.fromARGB(255, 0, 0, 0),
+            ),
             label: 'New Task',
           ),
         ],
         currentIndex: _selectedIndex,
+        backgroundColor: const Color.fromARGB(255, 235, 229, 229),
         selectedItemColor: Colors.amber[800],
         onTap: _onItemTapped,
       ),

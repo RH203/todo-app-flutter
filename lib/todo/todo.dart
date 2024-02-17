@@ -1,3 +1,5 @@
+import 'package:characters/characters.dart';
+
 class Todo {
   final List<String> title = [];
   final List<String> task = [];
@@ -8,11 +10,27 @@ class Todo {
   }
 
   List<String> getTitle() {
-    return title;
+    List<String> modifiedTitle = [];
+    for (String t in title) {
+      if (' '.allMatches(t).length > 4) {
+        modifiedTitle.add('${t.characters.take(15).toString()} ...');
+      } else {
+        modifiedTitle.add(t);
+      }
+    }
+    return modifiedTitle;
   }
 
   List<String> getTask() {
-    return task;
+    List<String> modifiedTasks = [];
+    for (String t in task) {
+      if (' '.allMatches(t).length > 2) {
+        modifiedTasks.add('${t.characters.take(20).toString()} ...');
+      } else {
+        modifiedTasks.add(t);
+      }
+    }
+    return modifiedTasks;
   }
 
   int lengthTodo() {
